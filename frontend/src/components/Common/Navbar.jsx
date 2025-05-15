@@ -73,7 +73,7 @@ const Navbar = () => {
             <SearchBar />
           </div>
 
-          <Link to="/profile" className="text-gray-400 ">
+          <Link to="/profile" className="text-gray-400 md:hidden">
             <HiBars3BottomRight className="h-7 w-7 hover:text-rabbit-green" />
           </Link>
         </div>
