@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineUser, HiOutlineShoppingBag } from "react-icons/hi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import SearchBar from "./SearchBar";
+import CardDrawer from "../Layout/CardDrawer";
 
 const Navbar = () => {
+  const [cartDraw, setCartDraw] = useState(false);
+
+  const toggleCartDrawer = () => {
+    setCartDraw(!cartDraw);
+  };
+
   return (
     <>
-      <nav className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-8 md:px-12 lg:px-16">
+      <nav className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6 md:px-6 lg:px-16">
         {/* Left - Logo */}
         <div>
           <Link to="/" className="font-medium text-2xl">
@@ -54,9 +61,11 @@ const Navbar = () => {
           <Link to="/profile" className="text-gray-400 ">
             <HiOutlineUser className="h-6 w-6 hover:text-rabbit-green" />
           </Link>
-          <button className="relative text-gray-400 ">
+          <button onClick={toggleCartDrawer} className="relative text-gray-400 ">
             <HiOutlineShoppingBag className="h-6 w-6 hover:text-rabbit-green" />
-            <span className="absolute -top-1 -right-1 bg-rabbit-green text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">4</span>
+            <span className="absolute -top-1 -right-1 bg-rabbit-green text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
+              4
+            </span>
           </button>
 
           {/* Search */}
@@ -69,6 +78,9 @@ const Navbar = () => {
           </Link>
         </div>
       </nav>
+
+      {/* Card Drawer */}
+      <CardDrawer cartDraw={cartDraw} toggleCartDrawer={toggleCartDrawer} />
     </>
   );
 };
