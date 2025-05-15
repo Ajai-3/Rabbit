@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineUser, HiOutlineShoppingBag } from "react-icons/hi";
 import { HiBars3BottomRight } from "react-icons/hi2";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   return (
     <>
-      <nav className="container mx-auto flex justify-between items-center py-4 px-6">
+      <nav className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-8 md:px-12 lg:px-16">
         {/* Left - Logo */}
         <div>
           <Link to="/" className="font-medium text-2xl">
@@ -59,9 +60,12 @@ const Navbar = () => {
           </button>
 
           {/* Search */}
+          <div className="overflow-hidden">
+            <SearchBar />
+          </div>
 
           <Link to="/profile" className="text-gray-400 ">
-            <HiBars3BottomRight className="h-6 w-6 hover:text-rabbit-green" />
+            <HiBars3BottomRight className="h-7 w-7 hover:text-rabbit-green" />
           </Link>
         </div>
       </nav>
